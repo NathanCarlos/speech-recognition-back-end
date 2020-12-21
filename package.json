@@ -1,0 +1,31 @@
+{
+  "name": "speech-recognition-back-end",
+  "version": "1.0.0",
+  "description": "speech recognition back end poc",
+  "main": "server.js",
+  "scripts": {
+    "start": "ts-node src/server.ts",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "serve": "node dist/server.js",
+    "watch-ts": "tsc -w",
+    "tslint": "tslint -c tslint.json -p tsconfig.json",
+    "build:live": "ts-node-dev --respawn --ignore-watch node_modules src/server.ts",
+    "build": "npm run build-ts && npm run tslint"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@types/node": "^14.14.14",
+    "apollo-server-fastify": "^2.19.0",
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "fastify": "^2.15.3",
+    "mysql": "^2.18.1",
+    "ts-node": "^9.1.1",
+    "typeorm": "^0.2.29",
+    "typescript": "^4.1.3"
+  },
+  "devDependencies": {
+    "ts-node-dev": "^1.1.1"
+  }
+}
