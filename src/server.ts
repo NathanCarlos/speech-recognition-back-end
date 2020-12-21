@@ -2,10 +2,11 @@ import { ApolloServer } from 'apollo-server-fastify';
 import * as fastify from 'fastify';
 import { config } from './config';
 import { connection } from './database/config';
-import { typeDefs, resolvers } from './graphql/schema';
+import resolvers from './graphql/resolvers';
+import typeDefs from './graphql/types';
 
 const fastifyServerOptions: fastify.ServerOptions = {
-    logger: true,
+    logger: false,
 }
 
 const apolloServer = new ApolloServer({

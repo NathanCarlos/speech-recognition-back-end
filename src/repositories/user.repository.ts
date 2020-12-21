@@ -1,36 +1,34 @@
-import { Connection, getConnection } from 'typeorm';
+import { getConnection } from 'typeorm';
 import { User } from '../models/user.model';
 
 export class UserRepository {
 
-    private connection: Connection;
-
-    constructor() {
-        this.connection = getConnection();
+    static getUsers() {
+        return getConnection().
+        getRepository(User).find();
     }
 
-    getUsers() {
-        return this.connection.getRepository(User).find();
-    }
-
-    getUser(userName: string) {
-        return this.connection.getRepository(User).findOne({
+    static getUser(userName: string) {
+        return getConnection().
+        getRepository(User).findOne({
             where: {
                 userName: userName,
             }
         });
     }
 
-    createUser(userName: string) {
-        return this.connection.getRepository(User).create(
+    static createUser(userName: string) {
+        return getConnection().
+        getRepository(User).save(
             {
                 userName: userName
             }
         )
     }
 
-    updateUser(user: Partial<User>) {
-        return this.connection.getRepository(User).update({
+    static updateUser(user: Partial<User>) {
+        return getConnection().
+        getRepository(User).update({
             id: user.id
         }, user);
     }
