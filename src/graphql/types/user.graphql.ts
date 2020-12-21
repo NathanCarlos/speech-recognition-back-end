@@ -8,6 +8,7 @@ export const userType = gql`
     }
     type Query {
         users: [User!]!
+        getUser(userName: String!): User
     }
     type Mutation {
         createUser(userName: String!): User!
